@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>C.R.U.D</title>
+</head>
+
+<body>
+    <center>
+        <h> update your details here </h>
+
+        <div class="container">
+            <table border="5px solid #000;">
+                <form action="{% url 'update' object.id %}" method='POST'>
+                    {%csrf_token%}
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <td> Name</td>
+                                <td><input type="text" name="name" value={{object.name}}></td>
+                            </tr>
+                            <tr>
+                                <td> Age</td>
+                                <td><input type="date" name="age" value={{object.age}}></td>
+                            </tr>
+                            <tr>
+                                <td> Gender </td>
+                                <td>
+                                    <input type="radio" name="gender" value="Male">
+                                      <label for="male">male</label>
+                                      <input type="radio" name="gender" value="Female">
+                                      <label for="female">female</label>
+                                      <input type="radio" name="gender" value="Others">
+                                      <label for="others">others</label>
+                                     
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> DEGREE </td>
+                                <td>
+                                    <select id="degree" name="degree">
+                                        <option style="background-color: #888;" selected>Choose Degree</option>
+                                        <option value="B.A">B.A. (Bachelor of Arts)</option>
+                                        <option value="B.COM">B.Com. (Bachelor of Commerce)</option>
+                                        <option value="B.SC">B.Sc. (Bachelor of Science)</option>
+                                        <option value="B.E">B.E.(Bachelor of Engineering)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Address</td>
+                                <td><textarea name='address'>{{object.address}}</textarea></td>
+                            </tr>
+                            <tr>
+                                <td> Image </td>
+                                <td>
+                                    <input type="file" id="myfile" name="image">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" value='Update'></td>
+                            </tr>
+
+                    </tbody>
+                    </thead>
+</body>
+
+</html>

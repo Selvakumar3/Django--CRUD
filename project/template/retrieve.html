@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>C.R.U.D</title>
+</head>
+ <body style="background-color:lightgrey;">
+    <a href= "/"> HOME </a>
+        <table border="5px solid #000;">
+            <tbody>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Degree</th>
+                        <th>Address</th>
+                        <th>Images</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+            <tbody>
+                {% for i in details %}
+                <tr>
+                    <td style="padding:10px;">{{i.name}}</td>
+                    <td style="padding:10px;">{{i.age}}</td>
+                    <td style="padding:10px;">{{i.gender}}</td>
+                    <td style="padding:10px;">{{i.degree}}</td>
+                    <td style="padding:10px;">{{i.address}}</td>
+                    <td>
+                        {% if i.image %}
+                        <img src="{{i.image.url}}" alt="image" width="100px" height="100px">
+                        {% endif %} 
+                    </td>   
+                    <td style="padding:10px;"><a href="{% url 'edit' i.id %}">Edit</a></td>
+                    <td style="padding:10px;"><a href="{% url 'delete' i.id %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>
